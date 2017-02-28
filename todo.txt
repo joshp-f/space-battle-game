@@ -1,0 +1,13 @@
+put sockets in user
+check if user is active
+generate all planet updates at once- drop integration system
+simply apply % update per tick, so enable complex formulas
+have boolean checking if updated yet
+pass stuff out per socket
+
+MECHANICS-
+continuous attacks
+military maintenance
+farm % efficiency drops with overpopulation
+
+make civ 5 style science tree/military tree
