@@ -8,7 +8,7 @@ console.log("finished");
 var users = {};
 var onlineUsers = {};
 var app = express();
-var server = app.listen(8000);
+var server = app.listen(8080);
 app.use(express.static('public'));
 
 var io = socket(server);
