@@ -11,8 +11,8 @@ function setup() {
 	GUI = new GUI();
 	GUI.createLoginUI();
 	GUI.loginUI.submitBox.mousePressed(function(){tryLogin(GUI.loginUI.nameBox.value())});
-	//socket = io.connect('ec2-52-62-1-195.ap-southeast-2.compute.amazonaws.com');
-	socket = io.connect('http://localhost:80');
+	socket = io.connect('http://space-core-server-mp-space.44fs.preview.openshiftapps.com');
+	//socket = io.connect('http://localhost:8080');
 	socket.on('initialise',initialiseScreen);
 	socket.on('universe',	writeUniverse);
 	socket.on('endGame', endGame);
