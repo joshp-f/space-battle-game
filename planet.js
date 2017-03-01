@@ -9,7 +9,7 @@ function planet(name,x,y){
 		score:80,
 		regen:1,
 		speed:5,
-		tradespeed:1,
+		tradespeed:2,
 		range:400,
 		owner:'w',
 		attacking:false,
