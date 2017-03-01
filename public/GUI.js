@@ -12,8 +12,15 @@ function GUI(){
 			nameBox:createInput('enter username'),
 			submitBox:createButton('submit'),
 			responseBox:createP('name your space empire'),
+			tutorialBox:createP('Click on planets to recentre your view.' + 
+				'<br> Drag from a planet you own to another to create links' + 
+				'<br> Dragging to an enemy planet in attack range will start an attack' + 
+				'<br> Dragging to an allied planet will begin trade' + 
+				'<br> recreate links to destroy existing ones'),
+
 		}
 		this.loginUI.responseBox.style("color","#ffffff");
+		this.loginUI.tutorialBox.position(20,300);
 
 
 	}
