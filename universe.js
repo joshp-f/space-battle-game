@@ -71,12 +71,13 @@ function universe(rangeX,rangeY,numplanets){
 			}
 		}
 		//stub for case where no planets left- does nothing
-		return 0;
+		return false;
 	}
 
 	this.findPlanet = function(id){
+		var nid = parseInt(id);
 		//can replace with more efficient search later
-		if(this.planets.hasOwnProperty(id)){
+		if( Number.isInteger(nid) && this.planets.hasOwnProperty(id)){
 			return this.planets[id];
 
 		}
@@ -104,32 +105,32 @@ function universe(rangeX,rangeY,numplanets){
 		for(var k in ids){
 			var planet = this.findPlanet(ids[k]);
 			this.processStats(ids[k]);
-			output[ids[k]] = {x:planet.x,y:planet.y,name:planet.name,stats:planet.stats};
+			output[ids[k]] = {x:planet.x,y:planet.y,name:planet.name,radius:planet.radius,color:planet.color,stats:planet.stats};
 		}
 		//TODO
 		var scores = this.grabScores();
 		return {scores:scores,planets:output};
 	}
-	this.createLink = function(data){
-		from = this.findPlanet(data.from);
-		to = this.findPlanet(data.to);
+	this.createLink = function(idfrom,idto){
+		var from = this.findPlanet(idfrom);
+		var to = this.findPlanet(idto);
 		if(hypot(from.x-to.x,from.y-to.y)<from.stats.range){
 			if(from.getOwner() != to.getOwner()){
 				//removes link
-				if(from.stats.attacking === data.to){
+				if(from.stats.attacking === idto){
 					from.stats.attacking = false;
 				}
 				else{
-					from.stats.attacking = data.to;
+					from.stats.attacking = idto;
 				}
 			}
 			else{
 				//removes link
-				if(from.stats.trading === data.to){
+				if(from.stats.trading === idto){
 					from.stats.trading = false;
 				}
 				else{
-					from.stats.trading = data.to;
+					from.stats.trading = idto;
 
 				}
 			}

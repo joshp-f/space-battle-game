@@ -2,14 +2,14 @@ function planet(name,x,y){
 	this.name = name;
 	this.x = x;
 	this.y = y;
-	this.radius = 30;
-	this.color = {r:255,g:255,b:255};
+	this.radius = 20 + Math.random()*20;;
+	this.color = {r:150+Math.random()*75,g:150+Math.random()*75,b:150+Math.random()*75};
 	this.stats = {
-		score:100,
+		max:80 + Math.floor(this.radius),
+		score:80,
 		regen:1,
 		speed:5,
 		tradespeed:1,
-		max:100,
 		range:400,
 		owner:'w',
 		attacking:false,

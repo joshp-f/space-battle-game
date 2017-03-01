@@ -6,5 +6,6 @@ function user(home,name,socket){
 	this.socket = socket;
 	this.timeActive = Date.now();
 	this.planets = {};
+	this.requestFrequency = 0;
 }
 module.exports = user;

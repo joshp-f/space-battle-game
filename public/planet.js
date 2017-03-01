@@ -2,8 +2,8 @@ function planet(data){
 	this.x = data.x;
 	this.y = data.y;
 	this.name = data.name;
-	this.radius = 30;
-	this.color = {r:255,g:255,b:255};
+	this.radius = data.radius;
+	this.color = data.color;
 	this.stats = data.stats;
 
 	this.display = function(userid){
@@ -46,7 +46,7 @@ function planet(data){
 		return this.stats.owner;
 	}
 	this.displayRange = function(){
-		fill(100,0,0,100);
+		fill(150,0,0,150);
 		noStroke();		
 		ellipse(this.x,this.y,this.stats.range*2,this.stats.range*2);
 	}

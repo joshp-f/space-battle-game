@@ -11,8 +11,11 @@ function GUI(){
 		this.loginUI = { 
 			nameBox:createInput('enter username'),
 			submitBox:createButton('submit'),
-			responseBox:createP('enter a valid username ( containing 1-16 letters and numbers)'),
+			responseBox:createP('name your space empire'),
 		}
+		this.loginUI.responseBox.style("color","#ffffff");
+
+
 	}
 	this.removeLoginUI = function(){
 		for(var elem in this.loginUI){
@@ -37,7 +40,6 @@ function GUI(){
 		for (var i = 0; i < data.length; i++){
 			text += "<br>" + (i+1) + "- " + data[i].name + " - " + data[i].score;
 		}
-		console.log(text);
 		this.gameUI.leaderboard.html(text);
 	}
 

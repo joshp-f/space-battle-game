@@ -11,8 +11,8 @@ function setup() {
 	GUI = new GUI();
 	GUI.createLoginUI();
 	GUI.loginUI.submitBox.mousePressed(function(){tryLogin(GUI.loginUI.nameBox.value())});
-	socket = io.connect('ec2-13-54-214-11.ap-southeast-2.compute.amazonaws.com');
-	//socket = io.connect('http://localhost:8080');
+	//socket = io.connect('ec2-13-54-214-11.ap-southeast-2.compute.amazonaws.com');
+	socket = io.connect('http://localhost:80');
 	socket.on('initialise',initialiseScreen);
 	socket.on('universe',	writeUniverse);
 	socket.on('endGame', endGame);
@@ -67,7 +67,7 @@ function initialiseScreen(data){
 
 	}
 	else{
-		GUI.loginUI.responseBox.html("invalid name, try again");
+		GUI.loginUI.responseBox.html(data.message);
 	}
 
 }
