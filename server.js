@@ -41,10 +41,8 @@ function updateUniverse(){
 		}
 		else{
 			var pid = user.current;
-			var data = universe.collectPlanetData(pid);
-			for(var i = 0; i < data.scores.length;i++){
-				data.scores[i].name = users[data.scores[i].name].name;
-			}
+			//putting users here isnt great but eh
+			var data = universe.collectPlanetData(pid,users);
 			user.socket.emit('universe',data);
 
 		}

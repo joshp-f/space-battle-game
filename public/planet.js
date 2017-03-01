@@ -1,7 +1,6 @@
 function planet(data){
 	this.x = data.x;
 	this.y = data.y;
-	this.name = data.name;
 	this.radius = data.radius;
 	this.color = data.color;
 	this.stats = data.stats;
@@ -23,7 +22,7 @@ function planet(data){
 		textSize(14);
 		noStroke();
 		fill(255);
-		text(this.name,this.x-30,this.y-this.radius-10);
+		text(this.stats.name,this.x-30,this.y-this.radius-10);
 		fill(0);
 		text(this.stats.score,this.x-12,this.y+5);
 	}

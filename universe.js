@@ -86,7 +86,7 @@ function universe(rangeX,rangeY,numplanets){
 
 	//this object is sent through socket as JSON-minimised to necessary data
 	//causes stats of all observed planets to be updated
-	this.collectPlanetData = function(id){
+	this.collectPlanetData = function(id,users){
 		var output = {};
 		var ids = [];
 		var planet = this.findPlanet(id);
@@ -105,10 +105,17 @@ function universe(rangeX,rangeY,numplanets){
 		for(var k in ids){
 			var planet = this.findPlanet(ids[k]);
 			this.processStats(ids[k]);
-			output[ids[k]] = {x:planet.x,y:planet.y,name:planet.name,radius:planet.radius,color:planet.color,stats:planet.stats};
+			if (planet.stats.owner != this.wildID){
+				planet.stats.name = planet.basename + ' (' + users[planet.stats.owner].name + ')';
+			}
+			output[ids[k]] = {x:planet.x,y:planet.y,radius:planet.radius,color:planet.color,stats:planet.stats};
+
 		}
 		//TODO
 		var scores = this.grabScores();
+		for(var i = 0; i < scores.length;i++){
+			scores[i].name = users[scores[i].name].name;
+		}
 		return {scores:scores,planets:output};
 	}
 	this.createLink = function(idfrom,idto){
