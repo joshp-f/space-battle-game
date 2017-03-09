@@ -5,6 +5,7 @@ var GUI;
 var loggedin = false;
 var alive = false;
 var deathmessage = "";
+var stars = [];
 function setup() {
 	universe = new universe();
 	screen = new screen(-1,0,0);
@@ -19,13 +20,16 @@ function setup() {
 	canvas = createCanvas(windowWidth,windowHeight);
 	canvas.position(0,0);
 	canvas.style('z-index','-1');
+	generatestars();
 }
 
 function draw() {
 	if(!loggedin){
 		background(0);
+		drawstars();
 	}
 	else if(alive){
+		socket.emit('ping',Date.now());
 		background(0);
 
 		var curplanet = universe.findPlanet(screen.planet);
@@ -122,4 +126,19 @@ function tryLogin(name){
 function endGame(data){
 	alive = false;
 	deathmessage = data;
+}
+
+function generatestars(){
+	for(var i = 0; i < 100; i++){
+		stars.push({x:random(0,width),y:random(0,height)})
+	}
+}
+function drawstars(){
+	push();
+	fill(255);
+	for(var i = 0; i < stars.length;i++){
+		ellipse(stars[i].x,stars[y].y,5,5);
+
+	}
+	pop();
 }

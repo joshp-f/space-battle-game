@@ -94,11 +94,15 @@ function requestLogin(data,socket){
 
 			socket.on('updateScreen',function(data){updateScreen(data,socket.id);});
 			socket.on('requestLink',function(data){requestLink(data,socket.id);});
+			socket.on('ping',function(data){receivePing(socket.id)});
 			socket.emit('initialise',{success:true,home:id,x:planet.x,y:planet.y,userid:socket.id});
 		}
 	}
 	else{
 		socket.emit('initialise',{success:false,message:'name must be < 17 chars and alpha numeric'});
+	}
+	function reveivePing(id){
+
 	}
 
 }
