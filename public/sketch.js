@@ -134,6 +134,7 @@ function generatestars(){
 	}
 }
 function drawstars(){
+	/*
 	push();
 	fill(255);
 	for(var i = 0; i < stars.length;i++){
@@ -141,4 +142,5 @@ function drawstars(){
 
 	}
 	pop();
+	*/
 }
