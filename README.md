@@ -1,4 +1,4 @@
-# space-server2
+# space-battle-game
 ### summary:
 This is a fully functional but incomplete mmo .io style game in which you must attempt to take control of the galaxy.
 drag links from allied to enemy planets to launch attacks or drag links between your planets to reinforce their strength.
